@@ -20,6 +20,7 @@ class ScoringRequestMixin(PoolingBasicRequestMixin, ClassifyRequestMixin):
     # --8<-- [start:scoring-common-params]
     max_tokens_per_query: int = Field(
         default=0,
+        ge=0,
         description=(
             "Maximum number of tokens per query. Queries longer than "
             "this will be truncated to this length. 0 means no "
@@ -28,6 +29,7 @@ class ScoringRequestMixin(PoolingBasicRequestMixin, ClassifyRequestMixin):
     )
     max_tokens_per_doc: int = Field(
         default=0,
+        ge=0,
         description=(
             "Maximum number of tokens per document. Documents longer than "
             "this will be truncated to this length. 0 means no "
